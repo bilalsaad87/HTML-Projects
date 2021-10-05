@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="search-sty">
+        <form id="search-form">
+            <input type="text" name="search" id="search" placeholder="Enter The Location..." value="" autocomplete="">
+            <button  type="submit" class="btn-search" ><i class="fas fa-search"></i></button>
+        </form>
+        </div>
+        <div class="card" id="card">
+            <h3 class="loc"><i class="fas fa-map-marker"></i> Location</h3>
+            <small class="time">Mon, 4 October 7:21 PM</small>
+            <div class="card-info">
+                <div class="weather-image"></div>
+                <h1 class="temp">00<sup>o</sup></h1>
+                <span class="feel">Fair</span>
+                <span class="hiLow">00<sup>o</sup> / 00<sup>o</sup></span>
+            </div>
+        </div>
+        <div class="dayCard">
+            <div class="weather-info">
+                <i class="fas fa-low-vision"></i>
+                <h4>UVIndex:</h4>
+                <span class="uvIndex"></span>
+            </div>
+            <hr>
+            <div class="weather-info">
+                <i class="fas fa-sun"></i>
+                <h4>Sunrise:</h4>
+                <span class="sunrise"></span>
+            </div>
+            <hr>
+            <div class="weather-info">
+                <i class="far fa-sun"></i>
+                <h4>Sunset:</h4>
+                <span class="sunset"></span>
+            </div>
+            <hr>
+            <div class="weather-info">
+                <i class="fas fa-wind"></i>
+                <h4>Wind:</h4>
+                <span class="wind"></span>
+            </div>
+            <hr>
+            <div class="weather-info">
+                <i class="fas fa-hand-sparkles"></i>
+                <h4>AQI:</h4>
+                <span class="aqi"></span>
+            </div>           
+        </div>        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
