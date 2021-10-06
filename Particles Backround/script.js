@@ -16,3 +16,5 @@ update = function() {
     requestAnimationFrame(update);
 }; 
 requestAnimationFrame(update);;
+
+// For More Information https://github.com/VincentGarreau/particles.js/
