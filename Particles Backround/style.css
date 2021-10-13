@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 80vw;
+}
+
+.container h1 {
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.container p {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
+    text-align: justify;
+}
+
+/* particles style */
+canvas { 
+    display: block; 
+} 
+
+#particles-js { 
+    position:absolute; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #2b1c9b; 
+    background-image: url(""); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: 50% 50%; 
+}

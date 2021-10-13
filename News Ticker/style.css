@@ -1,0 +1,138 @@
+<<<<<<< HEAD
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    display: inline-block;
+    width: 90vw;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.ticker {
+    margin: 0 auto;
+    padding: 5px;
+    width: 80vw;
+    text-align: left;
+    border: #ccc 1px solid;
+    position: relative;
+    overflow: hidden;
+    background-color:#ffffff;
+}
+  
+.ticker ul {
+    width: 100%;
+    position: relative;
+    list-style-type: none;
+    height: 5vh;
+}
+  
+.ticker ul li {
+    width: 100%;
+    opacity: 0;
+    left: 0;
+    top: 100px;
+}
+
+.ticker .show {
+    display: block;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    transition: all 0.9s ease-in-out;
+}
+ 
+/* Style Links */
+
+.ticker a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: red;
+=======
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    display: inline-block;
+    width: 90vw;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.ticker {
+    margin: 0 auto;
+    padding: 5px;
+    width: 80vw;
+    text-align: left;
+    border: #ccc 1px solid;
+    position: relative;
+    overflow: hidden;
+    background-color:#ffffff;
+}
+  
+.ticker ul {
+    width: 100%;
+    position: relative;
+    list-style-type: none;
+    height: 5vh;
+}
+  
+.ticker ul li {
+    width: 100%;
+    opacity: 0;
+    left: 0;
+    top: 100px;
+}
+
+.ticker .show {
+    display: block;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    transition: all 0.9s ease-in-out;
+}
+ 
+/* Style Links */
+
+.ticker a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: red;
+>>>>>>> 266fa3394a0c286a41272b47955bf35348d27913
+}
