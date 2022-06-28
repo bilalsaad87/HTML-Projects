@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saved Nav Bar</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- The navigation menu -->
+        <div class="navbar">
+            <a href="#home">Home</a>
+            <div class="subnav">
+                <a href="#" onclick="btn_toggle('about')" class="subnavbtn">About <i class="fa fa-caret-down"></i></a>
+                <div class="about subnav-content hidden">
+                    <a href="#company">Company</a>
+                    <a href="#team">Team</a>
+                    <a href="#careers">Careers</a>
+                </div>
+            </div>
+            <div class="subnav">
+                <a href="#" onclick="btn_toggle('services')" class="subnavbtn">Services <i class="fa fa-caret-down"></i></a>
+                <div class="services subnav-content hidden">
+                    <a href="#bring">Bring</a>
+                    <a href="#deliver">Deliver</a>
+                    <a href="#package">Package</a>
+                    <a href="#express">Express</a>
+                </div>
+            </div>
+            <div class="subnav">
+                <a href="#" onclick="btn_toggle('partners')" class="subnavbtn">Partners <i class="fa fa-caret-down"></i></a>
+                <div class="partners subnav-content hidden">
+                    <a href="#link1">Link 1</a>
+                    <a href="#link2">Link 2</a>
+                    <a href="#link3">Link 3</a>
+                    <a href="#link4">Link 4</a>
+                </div>
+            </div>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <h2>Animated Sidenav Example</h2>
+    <p>Click on the element below to open the side navigation menu.</p>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
