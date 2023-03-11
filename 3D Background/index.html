@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Particles using GSAP</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <style>
+        body {
+            height: 950px;
+        }
+
+        canvas {
+            display: flex;
+            margin: 0 auto;
+            width: 256px;
+            height: 256px;
+            margin-top: 300px;
+        }
+
+        #transform {
+            position: absolute;
+            width: 150px;
+            height: 40px;
+            left: calc(50% - 75px);
+            top: 20px;
+            cursor: pointer;
+        }
+
+        #root {
+            position: fixed;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="scene"></canvas>
+    <script src="script.js"></script>
+</body>
+
+
+</html>
