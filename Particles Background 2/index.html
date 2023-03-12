@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Particles System Background</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/three.min.js"></script>
+    <style>
+        body {
+            display: block;
+            height: 200vh;
+        }
+
+        canvas {
+            position: fixed;
+            background-color: #000000;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script>
+        // Create a scene
+        const scene = new THREE.Scene();
+
+        // Create a renderer
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        let container;
+
+        let points;
+
+        init("sphere");
+        animate();
+
+        function init(shape) {
+
+            container = document.getElementById('container');
+
+            // Clear the scene
+            while (scene.children.length > 0) {
+                const child = scene.children[0];
+                scene.remove(child);
+                child.geometry.dispose();
+                child.material.dispose();
+            }
+
+            camera = new THREE.PerspectiveCamera(27, window.innerWidth / window.innerHeight, 5, 3500);
+            camera.position.z = 50;
+            scene.background = new THREE.Color(0x050505);
+
+            const particles = 50000;
+
+            const geometry = new THREE.BufferGeometry();
+
+            var positions = [];
+            const colors = [];
+
+            const color = new THREE.Color();
+
+            const n = 10, n2 = n / 2; // particles spread in the cube
+
+            for (let i = 0; i < particles; i++) {
+                if (shape == "cube") {
+                    // positions for cube
+                    const x = Math.random() * n - n2;
+                    const y = Math.random() * n - n2;
+                    const z = Math.random() * n - n2;
+                    positions.push(x, y, z);
+                    // colors
+                    const vx = (x / n) + 0.5;
+                    const vy = (y / n) + 0.5;
+                    const vz = (z / n) + 0.5;
+
+                    color.setRGB(vx, vy, vz);
+                    colors.push(color.r, color.g, color.b);
+                } else if (shape == "sphere") {
+                    // postion for sphere
+                    const x = (Math.random() - 0.5) * (Math.random() * 10);
+                    const y = (Math.random() - 0.5) * (Math.random() * 10);
+                    const z = (Math.random() - 0.5) * (Math.random() * 10);
+                    positions.push(x, y, z);
+                    // colors
+                    const vx = (x / n) + 0.5;
+                    const vy = (y / n) + 0.5;
+                    const vz = (z / n) + 0.5;
+
+                    color.setRGB(vx, vy, vz);
+                    colors.push(color.r, color.g, color.b);
+                } else if (shape == "cylinder") {
+                    const radius = 5; // radius of the cylinder
+                    const height = 10; // height of the cylinder
+                    const numSegments = 30; // number of segments used to approximate the cylinder shape
+
+                    for (let i = 0; i < numSegments; i++) {
+                        const theta = (2 * Math.PI * i) / numSegments; // angle of the current segment
+                        const x = radius * Math.cos(theta); // x-coordinate of the particle
+                        const y = height / 2; // y-coordinate of the particle (assuming the center of the cylinder is at the origin)
+                        const z = radius * Math.sin(theta); // z-coordinate of the particle
+                        positions.push(x, y, z);
+
+                        // colors
+                        const vx = (x / n) + 0.5;
+                        const vy = (y / n) + 0.5;
+                        const vz = (z / n) + 0.5;
+
+                        color.setRGB(255, 255, 255);
+                        colors.push(color.r, color.g, color.b);
+                    }
+
+                    for (let i = 0; i < numSegments; i++) {
+                        const theta = (2 * Math.PI * i) / numSegments; // angle of the current segment
+                        const x = radius * Math.cos(theta); // x-coordinate of the particle
+                        const y = -height / 2; // y-coordinate of the particle (assuming the center of the cylinder is at the origin)
+                        const z = radius * Math.sin(theta); // z-coordinate of the particle
+                        positions.push(x, y, z);
+
+                        // colors
+                        const vx = (x / n) + 0.5;
+                        const vy = (y / n) + 0.5;
+                        const vz = (z / n) + 0.5;
+
+                        color.setRGB(255, 255, 255);
+                        colors.push(color.r, color.g, color.b);
+                    }
+
+
+                }
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+
+            geometry.computeBoundingSphere();
+
+            const material = new THREE.PointsMaterial({ size: 0.05, vertexColors: true });
+
+            points = new THREE.Points(geometry, material);
+            scene.add(points);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            render();
+        }
+
+        function render() {
+            const time = Date.now() * 0.001;
+            points.rotation.x = time * 0.25;
+            points.rotation.y = time * 0.5;
+            renderer.render(scene, camera);
+        }
+
+        // Listen for the scroll event on the window
+        window.addEventListener('scroll', () => {
+            // Get the current scroll position
+            const scrollPosition = window.pageYOffset;
+
+            if (scrollPosition < 30) {
+                init("cube");
+            } else if (scrollPosition < 30 && scrollPosition < 60) {
+                init("sphere");
+            } else if (scrollPosition < 60 && scrollPosition < 90) {
+                init("cylinder");
+            }
+        });
+    </script>
+</body>
+
+</html>
