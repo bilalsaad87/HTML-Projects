@@ -1,0 +1,25 @@
+#container {
+    display: flex;
+    justify-content: center;
+}
+
+.bar {
+    width: 512px;
+    height: 512px;
+}
+
+
+#topBar {
+    position: absolute;
+    top: 128px;
+}
+
+#centerBar {
+    position: absolute;
+    top:256px;
+}
+
+#downBar {
+    position: absolute;
+    top: 384px;
+}

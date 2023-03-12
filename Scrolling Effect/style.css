@@ -1,0 +1,18 @@
+.section {
+    min-height: 100vh;
+    /* set height to full viewport height */
+    transition: background-color 0.5s ease-in-out;
+    /* smooth transition */
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    padding-top: 450px;
+}
+
+.section.active {
+    background-color: #000000;
+    /* new background color for active section */
+}
