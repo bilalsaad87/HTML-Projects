@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Transform From P Tag to Input Tag</title>
+</head>
+<body>
+  <p onclick="transformToInput(this)">Click me to transform:</p>
+
+<script>
+  function transformToInput(element) {
+    var text = element.innerHTML; // Get the text content of the <p> element
+    var input = document.createElement("input"); // Create an <input> element
+    input.type = "text"; // Set the input type to "text"
+    input.value = text; // Set the initial value of the input to the original text
+    input.onblur = function() {
+      // When the input loses focus, replace it with a new <p> element containing the updated text
+      var updatedText = this.value;
+      var newP = document.createElement("p");
+      newP.innerHTML = updatedText;
+      newP.onclick = function() {
+        transformToInput(this); // Make the new <p> element transformable as well
+      };
+      this.parentNode.replaceChild(newP, this);
+    };
+    element.parentNode.replaceChild(input, element); // Replace the <p> element with the <input> element
+    input.focus(); // Bring the input into focus
+  }
+</script>
+</body>
+</html>
